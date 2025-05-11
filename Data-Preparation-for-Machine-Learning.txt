@@ -1,0 +1,26 @@
+---
+Data Preparation for Machine Learning
+---
+
+- The `Objective` here is `Applying appropriate preprocessing` and `feature engineering` steps to tabular data in preparation for predictive modeling.
+
+- Ensure that you have a strategy for dealing with missing and non-numeric data.
+
+- Make sure you also consider:
+
+> Preventing Data Leakage: As you prepare data for modeling, make sure that you are correctly applying data preparation techniques so that your model's performance on test data realistically represents how it would perform on unseen data. For scikit-learn transformers specifically, make sure that you do not fit the transformer on the test data. Instead, fit the transformer on the training data and use it to transform both the train and test data.
+
+> Scaling: If you are using a distance-based model algorithm (e.g. kNN or logistic regression with regularization), make sure you scale your data prior to fitting the model.
+
+
+---
+Nonparametric and Ensemble Modeling
+---
+
+- Your project should consider the different types of models that have been covered in the course so far and whether they are appropriate or inappropriate for the dataset and business case you are working with.
+
+- Your final model can still be a linear model (e.g. logistic regression) but you should explore at least one nonparametric model (e.g. decision tree) as well and articulate why one or the other is a better approach.
+
+> `Exceeds Objective`
+
+- Goes above and beyond in the modeling process, such as articulating why a given model type is best suited to the problem or correctly using scikit-learn models not covered in the curriculum
