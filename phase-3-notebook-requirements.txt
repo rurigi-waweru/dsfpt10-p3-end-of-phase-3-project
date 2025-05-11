@@ -1,0 +1,16 @@
+---
+notebook Requirements:
+---
+
+1. Overview
+2. Business and Data Understanding
+3. Explain your stakeholder audience and dataset choice here
+4. Modeling
+5. Evaluation
+6. Conclusion
+
+---
+README.md: Additional instructions
+---
+
+- The README.md file should be the bridge between your non technical presentation and the Jupyter Notebook. `It should not contain the code used to develop your analysis`, but should provide a more in-depth explanation of your methodology and analysis than what is described in your presentation slides.
