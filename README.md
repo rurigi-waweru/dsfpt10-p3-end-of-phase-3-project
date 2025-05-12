@@ -2,13 +2,15 @@
 #### Contributors: Brian Waweru, Start-Date        : 08th May, 2025
 ---
 
-# 1.0.1: Working Libraries and Preliminaries
+# 1.1.0 Overview
+
+# 1.1.1: Working Libraries and Preliminaries
 
 First, we set up the necessary tools for a machine learning classification workflow in Python. The various libraries are imported to support at a glance were Data handling (pandas), Data preprocessing (StandardScaler, OneHotEncoder, ColumnTransformer), Model building (Logistic Regression, Random Forest, XGBoost, SVC, KNN), Pipeline creation and model evaluation (Pipeline, accuracy_score, ROC metrics, confusion matrix), Addressing class imbalance (SMOTE), Label encoding (LabelEncoder), Plotting and visualization (matplotlib.pyplot)
 
 This selection of models and tools highlight that the code will perform binary or multiclass classification, an imbalanced dataset, with preprocessing steps included in a pipeline.
 
-# 1.0.2: Basic Exploratory Data Analysis
+# 1.1.2: Basic Exploratory Data Analysis
 
 After importing the file into the python notebook. The dataset was seen to have 3333 rows and 21 columns i.e. features. One of the column was `churn`. Since this is a churn dataset, the target variable was certainly `churn` column with the rest being the other `features`. 
 
