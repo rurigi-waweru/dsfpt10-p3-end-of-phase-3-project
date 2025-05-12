@@ -179,13 +179,13 @@ print(f"INFERENCE: So, only {churn_perc}% of the customers churn — this shows 
 
 This class imbalance refers to the fact that one class (non-churn) significantly outweighs the other `churning` group. This imbalance can affect the performance of machine learning model. They may become biased toward predicting the majority class, the `non-churning`, which could result in misleading accuracy scores.
 
+```python
 # RE_DONE
 X_encoded = pd.get_dummies(X, drop_first=True)  # drop_first avoids dummy trap
 
 # 
 le = LabelEncoder()
 X['state'] = le.fit_transform(X['state'])
-
 
 # Encode categorical variables
 X_encoded = pd.get_dummies(X, drop_first=True)
@@ -212,15 +212,21 @@ y_proba = clf.predict_proba(X_test)[:, 1]
 print("Classification Report:")
 print(classification_report(y_test, y_pred))
 print("ROC-AUC Score:", roc_auc_score(y_test, y_proba))
+```
 
-# 4: Modeling and Evaluation
 
-#### 4.1 : Logistic Regression
+# 5.1.0: Modeling and Evaluation
+
+
+## 5.1.1 : Logistic Regression
+
 Let us start with a `simple Logistic Regression` model, before we try others like Random Forest.
 model = LogisticRegression(max_iter=1000, class_weight='balanced')  # Use class_weight if you didn't use SMOTE
 model.fit(X_train, y_train)
 
-#### 4.2 : Others
+## 5.1.2 : Others
+
+```python
 # One-hot encode categorical variables
 X = pd.get_dummies(X, drop_first=True)
 
@@ -232,9 +238,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+```
 
-### 5.0 : Evaluation
+## 5.1.3 : Evaluation
 
+```python
 # Define models
 models = {
     "Logistic Regression": LogisticRegression(class_weight='balanced', max_iter=10000),
@@ -260,11 +268,9 @@ for name, model in models.items():
 
     print(classification_report(y_test, y_pred))
     print("ROC AUC:", roc_auc_score(y_test, y_proba))
+```
 
-
-# 5: Evaluation
-
-#### 5.1.1 : Logistical Regression
+#### 5.1.4 : Logistical Regression
 
 After training the model, it's important to evaluate its performance using:
 
@@ -278,6 +284,8 @@ After training the model, it's important to evaluate its performance using:
     - Especially important for imbalanced datasets or when the costs of false positives/negatives differ.
 
 4. `ROC-AUC Curve`: Evaluate the classifier’s ability to distinguish between classes.
+
+```python
 # Train the Model
 # Fit a Logistic Regression model
 Model = LogisticRegression()
@@ -286,7 +294,6 @@ Model.fit(X_train_scaled, y_train)
 # Get prediction Probabilities
 # Predict probability estimates for the positive class
 y_probs = Model.predict_proba(X_test_scaled)[:, 1]
-# y_probs
 
 # Computing ROC Curve and AUC
 # Compute False Positive Rate and True Positive Rate
@@ -294,8 +301,11 @@ fpr, tpr, thresholds = roc_curve(y_test, y_probs)
 
 # Calculate the AUC score
 auc = roc_auc_score(y_test, y_probs)
-auc
+```
+
 #### 5.1.2 : Plot the ROC Curve
+
+```python
 # Plot the ROC Curve
 plt.figure(figsize=(8, 6))
 plt.plot(fpr, tpr, color='blue', label=f'ROC Curve (AUC = {auc:.2f})')
@@ -307,6 +317,9 @@ plt.title('Receiver Operating Characteristic (ROC) Curve',
 plt.legend(loc = 4)
 plt.grid(True)
 plt.show()
+```
+
+```python
 ### Evaluate
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
@@ -350,9 +363,9 @@ plt.legend(loc='lower right')
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+```
 
-
-# 6: Conclusions and Recommendations
+# 6.1.0 : Conclusions and Recommendations
 
 1. The ROC curve showing how your classifier performs across different thresholds.
 
