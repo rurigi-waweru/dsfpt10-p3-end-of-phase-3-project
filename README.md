@@ -111,15 +111,17 @@ As mentioned earlier in the overview and business understanding, features like `
 - `note:` The feature `phone number` had been dropped already. This is because it only serves as a customer identifier.
 - `note:` As noted earlier, there are no missing values. See section under `df.info()`.
 
-# redundant columns
+### 4.1.3 : redundant columns
 redundant_columns = ['total day charge', 'total eve charge', 'total night charge', 'total intl charge']
 # dropping them
 df.drop(redundant_columns, axis=1, inplace=True)
 
 
-### 3.3 : Standardization 
+### 4.1.4 : Standardization 
 
 Now, we transform features in the datasset i.e. `total day minutes`, `number vmail messages`, `total eve minutes` so that they have a common scale. 
+
+```python
 # Create a scaler object
 scaler = StandardScaler()
 
@@ -128,10 +130,9 @@ cols_to_standardize = ['total day minutes', 'number vmail messages', 'total eve 
 
 # Apply standardization to relevant columns
 df[cols_to_standardize] = scaler.fit_transform(df[cols_to_standardize])
+```
 
-# print feedback that it's done
-print('Success: It is done!')
-### 3.4 : Feature Engineering
+### 4.1.5 : Feature Engineering
 
 - Since the dataset is riddled with `minutes`, suppose we have `Total Call Usage` i.e the sum of `total day minutes`, `total eve minutes`, `total night minutes`, and `total intl minutes`. 
 
@@ -140,9 +141,9 @@ print('Success: It is done!')
 df['total minutes'] = df['total day minutes'] + df['total eve minutes'] + df['total night minutes'] + df['total intl minutes']
 # AVERAGE CALL DURATION:
 df['average call duration'] = df[['total day minutes', 'total eve minutes', 'total night minutes', 'total intl minutes']].mean(axis=1)
-# print feedback that it's done
-print('Success: It is done!')
-### 3.5 : Choosing `Target` and `Feature` column(s)
+
+
+### 4.1.6 : Choosing `Target` and `Feature` column(s)
 
 It is obvious that the choice of our Target column is `churn` while the rest are automatically the `Features`.
 
@@ -155,7 +156,8 @@ X = df.drop('churn', axis=1)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
 # print feedback that it's done
 print('Success: It is done!')
-### 3.6 : Check for Class Imbalance
+
+### 4.1.7 : Check for Class Imbalance
 
 Let's ensure that the model doesn’t learn misleading patterns — especially because we have binary classification problem.
 # first, let's check class distribution
@@ -168,9 +170,12 @@ churn_perc = round(df['churn'].value_counts(normalize=True)[1] * 100, 2)
 # print the result
 print(' ')
 print(f"INFERENCE: So, only {churn_perc}% of the customers churn — this shows class imbalance.")
+
 #### `Inference`: 
 
 This class imbalance refers to the fact that one class (non-churn) significantly outweighs the other `churning` group. This imbalance can affect the performance of machine learning model. They may become biased toward predicting the majority class, the `non-churning`, which could result in misleading accuracy scores.
+
+
 # RE_DONE
 X_encoded = pd.get_dummies(X, drop_first=True)  # drop_first avoids dummy trap
 
@@ -186,8 +191,7 @@ X_encoded = pd.get_dummies(X, drop_first=True)  # One-Hot Encoding
 
 # Step 2: Split data into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(
-    X_encoded, y, stratify=y, test_size=0.2, random_state=42
-)
+    X_encoded, y, stratify=y, test_size=0.2, random_state=42)
 
 # Step 3: Apply SMOTE to oversample the minority class in the training data
 smote = SMOTE(random_state=42)
@@ -225,7 +229,7 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-#### 4.3 : Evaluation
+### 5.0 : Evaluation
 
 # Define models
 models = {
