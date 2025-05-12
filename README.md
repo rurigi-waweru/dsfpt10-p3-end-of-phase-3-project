@@ -106,18 +106,20 @@ df['international plan'] = df['international plan'].map({'yes': 1, 'no': 0})
 df['voice mail plan'] = df['voice mail plan'].map({'yes': 1, 'no': 0})
 ```
 
-### 4.1.2 : Drop Irrelevant or Redundant Columns
+### 4.1.2 : Drop Irrelevant and Redundant Columns
 
 As mentioned earlier in the overview and business understanding, features like `total day charge` might be redundant if `total day minutes` already provides similar information. You might choose to drop one.
 
 - `note:` The feature `phone number` had been dropped already. This is because it only serves as a customer identifier.
 - `note:` As noted earlier, there are no missing values. See section under `df.info()`.
 
-### 4.1.3 : redundant columns
-redundant_columns = ['total day charge', 'total eve charge', 'total night charge', 'total intl charge']
-# dropping them
-df.drop(redundant_columns, axis=1, inplace=True)
+### 4.1.3 : Redundant Columns
 
+```python
+redundant_columns = ['total day charge', 'total eve charge', 'total night charge', 'total intl charge']
+# dropping
+df.drop(redundant_columns, axis=1, inplace=True)
+```
 
 ### 4.1.4 : Standardization 
 
