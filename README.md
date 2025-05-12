@@ -70,7 +70,7 @@ The project aligns with SyriaTel's strategic priorities:
 
 Ultimately, this project supports SyriaTel’s mission to build lasting customer relationships in a competitive telecom landscape.
 
-## 3.1.2: Data Understanding
+## 3.1.2: EDA: Data Understanding
 
 The dataset provided by SyriaTel consists of over 3300 customer records and 21 features, each capturing various aspects of a customer's interaction with the company's service. The target variable is `churn`, which indicates whether a customer has discontinued service or not. Understanding the composition and behavior of these column-features is critical in helping us build an effective churn prediction model.
 
