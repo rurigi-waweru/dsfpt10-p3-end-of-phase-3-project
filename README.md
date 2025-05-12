@@ -42,22 +42,12 @@ The overall project pipeline consists of:
 
 # 2.1.1: Project-Objectives
 
-Here are the key Objectives in this project:-
+Here are the Objectives in this project:-
 
 1. **Build a Predictive Model for Churn**  
-2. **Identify Key Drivers of Churn**  
-3. **Improve Churn Prediction Accuracy**  
-4. **Support Retention Strategy Development**  
-5. **Then Communicate Findings Clearly**: Present model insights and business recommendations in a format accessible to both technical and non-technical stakeholders.
-
-However, if time-allows it is also important to explore these other secondary objectives
-
-1. **Understand Customer Behavior**  
-2. **Segment At-Risk Customers**  
-3. **Evaluate Cost-Benefit Trade-offs**  
-   Analyze which churn-prone customers are most valuable to retain based on their potential lifetime value.
-4. **Develop a Repeatable ML Pipeline**  
-   Build a clean and modular workflow that can be reused with updated customer data in the future.
+2. **Improve Churn Prediction Accuracy**  
+3. **Develop a Repeatable ML Pipeline**: Build a clean and modular workflow that can be reused with updated customer data in the future.
+4. **Then Communicate Findings Clearly**: Present model insights
 
 
 # 3.1.0 : Business and Data Understanding
