@@ -248,6 +248,8 @@ X_test_scaled = scaler.transform(X_test)
 
 ## 5.1.3 : Evaluation
 
+Train and evaluate each model.
+
 ```python
 # Define models
 models = {
@@ -259,6 +261,7 @@ models = {
 }
 
 # Train and evaluate each model
+
 for name, model in models.items():
 
     print(f"\n----- {name} -----")
@@ -291,6 +294,8 @@ After training the model, it's important to evaluate its performance using:
 
 4. `ROC-AUC Curve`: Evaluate the classifier’s ability to distinguish between classes.
 
+The code:-
+
 ```python
 # Train the Model
 # Fit a Logistic Regression model
@@ -309,7 +314,9 @@ fpr, tpr, thresholds = roc_curve(y_test, y_probs)
 auc = roc_auc_score(y_test, y_probs)
 ```
 
-#### 5.1.2 : Plot the ROC Curve
+#### 5.1.6 : Plot the ROC Curve
+
+Plotting the ROC Curve:-
 
 ```python
 # Plot the ROC Curve
@@ -324,6 +331,8 @@ plt.legend(loc = 4)
 plt.grid(True)
 plt.show()
 ```
+
+Evaluating:-
 
 ```python
 ### Evaluate
@@ -373,10 +382,4 @@ plt.show()
 
 # 6.1.0 : Conclusions and Recommendations
 
-1. The ROC curve showing how your classifier performs across different thresholds.
-
-2. The AUC value, 0.90 summarizing overall performance for the  `Random Forest` points the best perfoming model. This means that it is the closest to perfect classification.
-
-3. From this we infer and conclude that the `Random Forest Model` is the most accurate and reliable classifier among the three
-
-4. Even though not as signicant as the inference above, it is worth noting that, All models outperform random guessing.
+The ROC curve showing how your classifier performs across different thresholds. The AUC value, 0.90 summarizing overall performance for the  `Random Forest` points the best perfoming model. This means that it is the closest to perfect classification. From this we infer and conclude that the `Random Forest Model` is the most accurate and reliable classifier among the three. Even though not as signicant as the inference above, it is worth noting that, All models outperform random guessing.
