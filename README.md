@@ -141,11 +141,13 @@ df[cols_to_standardize] = scaler.fit_transform(df[cols_to_standardize])
 - Since the dataset is riddled with `minutes`, suppose we have `Total Call Usage` i.e the sum of `total day minutes`, `total eve minutes`, `total night minutes`, and `total intl minutes`. 
 
 - Also, we can have `Average Call Duration` i.e. for Average of `day`, `evening`, `night`, and `international minutes`.
+
+```python
 # TOTAL CALL USAGE:
 df['total minutes'] = df['total day minutes'] + df['total eve minutes'] + df['total night minutes'] + df['total intl minutes']
 # AVERAGE CALL DURATION:
 df['average call duration'] = df[['total day minutes', 'total eve minutes', 'total night minutes', 'total intl minutes']].mean(axis=1)
-
+```
 
 ### 4.1.6 : Choosing `Target` and `Feature` column(s)
 
