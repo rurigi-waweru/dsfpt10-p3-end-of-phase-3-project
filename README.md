@@ -4,6 +4,8 @@
 
 # 1.1.0 Overview
 
+The project aims to predict customer churn for SyriaTel, a telecommunications company, using historical customer data. The core goal is to build a robust machine learning classification model that can flag at-risk customers, enabling the company to implement effective retention strategies and reduce revenue loss.
+
 # 1.1.1: Working Libraries and Preliminaries
 
 First, we set up the necessary tools for a machine learning classification workflow in Python. The various libraries are imported to support at a glance were Data handling (pandas), Data preprocessing (StandardScaler, OneHotEncoder, ColumnTransformer), Model building (Logistic Regression, Random Forest, XGBoost, SVC, KNN), Pipeline creation and model evaluation (Pipeline, accuracy_score, ROC metrics, confusion matrix), Addressing class imbalance (SMOTE), Label encoding (LabelEncoder), Plotting and visualization (matplotlib.pyplot)
