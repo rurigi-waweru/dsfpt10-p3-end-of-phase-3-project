@@ -58,7 +58,7 @@ However, if time-allows it is also important to explore these other secondary ob
 
 # 3.1.0 : Business and Data Understanding
 
-# 3.1.1: Business Understanding 
+## 3.1.1: Business Understanding 
 
 Customer churn is a critical business challenge for telco compianes such as SyriaTel. In a highly competitive and saturated market, retaining existing customers is often more cost-effective than acquiring new ones. Churn not only impacts immediate revenue but also affects long-term customer lifetime value, brand loyalty, and operational efficiency. Understanding why customers leave — and more importantly, identifying who is likely to leave — can empower SyriaTel to take timely, targeted actions. These may include `personalized marketing campaigns`, `service improvements`, or `tailored retention offers`. 
 
@@ -75,7 +75,8 @@ The project aligns with SyriaTel's strategic priorities:
 4. `Leveraging data` to drive smarter, faster business decisions.
 
 Ultimately, this project supports SyriaTel’s mission to build lasting customer relationships in a competitive telecom landscape.
-## 2.2: Data Understanding
+
+## 3.1.2: Data Understanding
 
 The dataset provided by SyriaTel consists of over 3300 customer records and 21 features, each capturing various aspects of a customer's interaction with the company's service. The target variable is `churn`, which indicates whether a customer has discontinued service or not. Understanding the composition and behavior of these column-features is critical in helping us build an effective churn prediction model.
 
@@ -90,26 +91,32 @@ The dataset provided by SyriaTel consists of over 3300 customer records and 21 f
 5. Importantly, the dataset is clean, with `no missing values`, and the data types are appropriate for analysis—numerical for continuous variables and object or boolean for categorical ones. However, some preprocessing will be necessary, including encoding categorical variables and dropping non-informative columns like phone number, as done previously, which acts only as an identifier.
 
 Through a Thorough EDA, we aim to understand the relationships between these features and the likelihood of churn. Identifying patterns, such as whether certain service plans correlate with higher churn, or whether customers with higher international usage are more likely to leave, will help us build a predictive model and generate actionable business insights.
-# 3: Data Preparation 
-### 3.1 : Handle Categorical Variables
+
+
+# 4.0.1: Data Preparation 
+
+## 4.1.1: Handle Categorical Variables
+
+```python
 # Categories i.e. classify the values in the 'international plan' as either 1 or 0
 df['international plan'] = df['international plan'].map({'yes': 1, 'no': 0})
 # Categories i.e. classify the values in the 'voice mail plan' as either 1 or 0
 df['voice mail plan'] = df['voice mail plan'].map({'yes': 1, 'no': 0})
-# print feedback that it's done
-print('Success: It is done!')
-### 3.2 : Drop Irrelevant or Redundant Columns
+```
+
+### 4.1.2 : Drop Irrelevant or Redundant Columns
 
 As mentioned earlier in the overview and business understanding, features like `total day charge` might be redundant if `total day minutes` already provides similar information. You might choose to drop one.
 
 - `note:` The feature `phone number` had been dropped already. This is because it only serves as a customer identifier.
 - `note:` As noted earlier, there are no missing values. See section under `df.info()`.
+
 # redundant columns
 redundant_columns = ['total day charge', 'total eve charge', 'total night charge', 'total intl charge']
 # dropping them
 df.drop(redundant_columns, axis=1, inplace=True)
-# print feedback that it's done
-print('Success: It is done!')
+
+
 ### 3.3 : Standardization 
 
 Now, we transform features in the datasset i.e. `total day minutes`, `number vmail messages`, `total eve minutes` so that they have a common scale. 
@@ -204,6 +211,7 @@ print("ROC-AUC Score:", roc_auc_score(y_test, y_proba))
 Let us start with a `simple Logistic Regression` model, before we try others like Random Forest.
 model = LogisticRegression(max_iter=1000, class_weight='balanced')  # Use class_weight if you didn't use SMOTE
 model.fit(X_train, y_train)
+
 #### 4.2 : Others
 # One-hot encode categorical variables
 X = pd.get_dummies(X, drop_first=True)
@@ -216,7 +224,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
+
 #### 4.3 : Evaluation
+
 # Define models
 models = {
     "Logistic Regression": LogisticRegression(class_weight='balanced', max_iter=10000),
@@ -243,7 +253,9 @@ for name, model in models.items():
     print(classification_report(y_test, y_pred))
     print("ROC AUC:", roc_auc_score(y_test, y_proba))
 
+
 # 5: Evaluation
+
 #### 5.1.1 : Logistical Regression
 
 After training the model, it's important to evaluate its performance using:
@@ -331,7 +343,9 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+
 # 6: Conclusions and Recommendations
+
 1. The ROC curve showing how your classifier performs across different thresholds.
 
 2. The AUC value, 0.90 summarizing overall performance for the  `Random Forest` points the best perfoming model. This means that it is the closest to perfect classification.
