@@ -16,7 +16,7 @@ Afterwards, the eda revealed that some few columns were categorical in nature wi
 
 `No` row had a missing entry! The `area code` had only 3 unique entries
 
-## 2.1.0: Overview-Introduction: Customer Churn Prediction for SyriaTel
+# 2.1.0: Overview-Introduction: Customer Churn Prediction for SyriaTel
 This project aims to predict customer churn for `SyriaTel`, a telecommunications company, using a sample of their historical customer data. By building a binary classification model since the customer either churns '1' or does not '0', we shall aim to identify patterns and factors that influence whether a customer will leave the company. The predictive model will assist the company in targeting at-risk customers with `retention strategies`, thereby reducing customer attrition and preserving revenue.
 
 The overall project pipeline consists of:
@@ -36,7 +36,7 @@ The overall project pipeline consists of:
 7. **Recommendations and Actionable Insights**: Informing business interventions to reduce churn. Provide recommendations for customer retention based on analytical findings.
 
 
-## 2.1.1: Project-Objectives
+# 2.1.1: Project-Objectives
 
 Here are the key Objectives in this project:-
 
@@ -56,9 +56,9 @@ However, if time-allows it is also important to explore these other secondary ob
    Build a clean and modular workflow that can be reused with updated customer data in the future.
 
 
-## 3.1.0 : Business and Data Understanding
+# 3.1.0 : Business and Data Understanding
 
-### 3.1.1: Business Understanding 
+# 3.1.1: Business Understanding 
 
 Customer churn is a critical business challenge for telco compianes such as SyriaTel. In a highly competitive and saturated market, retaining existing customers is often more cost-effective than acquiring new ones. Churn not only impacts immediate revenue but also affects long-term customer lifetime value, brand loyalty, and operational efficiency. Understanding why customers leave — and more importantly, identifying who is likely to leave — can empower SyriaTel to take timely, targeted actions. These may include `personalized marketing campaigns`, `service improvements`, or `tailored retention offers`. 
 
