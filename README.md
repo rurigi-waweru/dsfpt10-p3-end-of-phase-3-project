@@ -56,8 +56,9 @@ However, if time-allows it is also important to explore these other secondary ob
    Build a clean and modular workflow that can be reused with updated customer data in the future.
 
 
-# 2.0 : Business and Data Understanding
-## 2.1: Business Understanding 
+## 3.1.0 : Business and Data Understanding
+
+### 3.1.1: Business Understanding 
 
 Customer churn is a critical business challenge for telco compianes such as SyriaTel. In a highly competitive and saturated market, retaining existing customers is often more cost-effective than acquiring new ones. Churn not only impacts immediate revenue but also affects long-term customer lifetime value, brand loyalty, and operational efficiency. Understanding why customers leave — and more importantly, identifying who is likely to leave — can empower SyriaTel to take timely, targeted actions. These may include `personalized marketing campaigns`, `service improvements`, or `tailored retention offers`. 
 
