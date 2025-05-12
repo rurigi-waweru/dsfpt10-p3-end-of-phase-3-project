@@ -93,7 +93,7 @@ The dataset provided by SyriaTel consists of over 3300 customer records and 21 f
 Through a Thorough EDA, we aim to understand the relationships between these features and the likelihood of churn. Identifying patterns, such as whether certain service plans correlate with higher churn, or whether customers with higher international usage are more likely to leave, will help us build a predictive model and generate actionable business insights.
 
 
-# 4.0.1: Data Preparation 
+# 4.1.0 : Data Preparation 
 
 ## 4.1.1: Handle Categorical Variables
 
@@ -148,18 +148,21 @@ df['average call duration'] = df[['total day minutes', 'total eve minutes', 'tot
 It is obvious that the choice of our Target column is `churn` while the rest are automatically the `Features`.
 
 Now, Splitting the Data into `Training` and `Test` dataSets
+
+```python
 # Target Feature ## Dependent Feature
 y = df.churn
 # Other Features ## independent Features
 X = df.drop('churn', axis=1)
 # split-test-code
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
-# print feedback that it's done
-print('Success: It is done!')
+```
 
 ### 4.1.7 : Check for Class Imbalance
 
 Let's ensure that the model doesn’t learn misleading patterns — especially because we have binary classification problem.
+
+```python
 # first, let's check class distribution
 print(f"The Value counts are: \n{df.churn.value_counts()}", end = '\n\n')
 # The proportions are:
@@ -170,11 +173,11 @@ churn_perc = round(df['churn'].value_counts(normalize=True)[1] * 100, 2)
 # print the result
 print(' ')
 print(f"INFERENCE: So, only {churn_perc}% of the customers churn — this shows class imbalance.")
+```
 
 #### `Inference`: 
 
 This class imbalance refers to the fact that one class (non-churn) significantly outweighs the other `churning` group. This imbalance can affect the performance of machine learning model. They may become biased toward predicting the majority class, the `non-churning`, which could result in misleading accuracy scores.
-
 
 # RE_DONE
 X_encoded = pd.get_dummies(X, drop_first=True)  # drop_first avoids dummy trap
@@ -211,6 +214,7 @@ print(classification_report(y_test, y_pred))
 print("ROC-AUC Score:", roc_auc_score(y_test, y_proba))
 
 # 4: Modeling and Evaluation
+
 #### 4.1 : Logistic Regression
 Let us start with a `simple Logistic Regression` model, before we try others like Random Forest.
 model = LogisticRegression(max_iter=1000, class_weight='balanced')  # Use class_weight if you didn't use SMOTE
